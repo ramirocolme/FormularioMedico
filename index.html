@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+              
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets\styles.css">
+
+        <title>Modern input field - RamiroCADev</title>
+    </head>
+    <body>
+        
+        <!--==================== FORM ====================-->
+        <section class="part1">
+            <div class="form">
+                <form method="post" action="" name="google-sheet" class="form__content">
+                    <div class="home__container container grid">
+                        <div class="home__data">
+                            <h1 class="home__subtitle">Base Nacional</h1>
+                            <h2 class="home__title">de Aortas</h2>
+                            <p class="home__description">
+                                Primera parte del registro <br> Ésta información estará ligada a excel
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="form__box">
+                        <input type="number" name="Full_Name" class="form__input" placeholder="Record ID">
+                        <label for="" class="form__label">RECORD ID</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                    <div class="form__box">
+                        <input type="text" name="Email" class="form__input" placeholder="Identificación del paciente">
+                        <label for="" class="form__label">IDENTIFICACION DEL PACIENTE</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                    <div class="form__box">
+                        <input type="number" name="Age" class="form__input" placeholder="Edad del paciente">
+                        <label for="" class="form__label">EDAD DEL PACIENTE</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                    <div class="form__box">
+                        <input type="text" name="Genero" class="form__input" placeholder="Genero">
+                        <label for="" class="form__label">GENERO</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                    <div class="form__box">
+                        <input type="text" name="Raza" class="form__input" placeholder="Raza">
+                        <label for="" class="form__label">RAZA</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                </form>
+    
+                <script>
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpJVLnKqtsdC5PC_plJk5DU8H51MpSf2QVsgt3rufZctPLYqicrMzalDoNxhaG36JS/exec'
+                    const form = document.forms['google-sheet']
+    
+                    form.addEventListener('submit', e => {
+                        e.preventDefault()
+                        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+                        .then(response => alert('Patient Registered, please check google sheet'))
+                        .catch(error => console.error('Error!', error.message))
+                    })
+                </script>
+            </div>    
+        </section>
+        <section class="part2">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Comorbilidades</h1>
+                    <p class="home__description">
+                        Por favor indique cual o cuales <br> comorbilidades padece
+                    </p>
+                </div>
+
+                <div class="form__select">
+                    <input type="checkbox" id="comorb1" name="Ninguna" class="form__checklist">
+                    <label for="comorb1">Ninguna</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb2" name="Hipertension arterial" class="form__checklist">
+                    <label for="comorb2">Hipertensión Arterial</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb3" name="Diabetes mellitus II" class="form__checklist">
+                    <label for="comorb3">Diabetes mellitus II</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb4" name="Tabaquismo" class="form__checklist">
+                    <label for="comorb4">Tabaquismo</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb5" name="Enfermedad pulmonar obstructiva crónica" class="form__checklist">
+                    <label for="comorb5">Enfermedad pulmonar obstructiva crónica</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb6" name="Síndrome de Marfan" class="form__checklist">
+                    <label for="comorb6">Síndrome de Marfan</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb7" name="Síndrome de Ehler Danlos" class="form__checklist">
+                    <label for="comorb7">Síndrome de Ehler Danlos</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb8" name=Síndrome de Loeys-Dietz" class="form__checklist">
+                    <label for="comorb8">Síndrome de Loeys-Dietz</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb9" name="Enfermedad arterial periférica de miembros inferiores" class="form__checklist">
+                    <label for="comorb9">Enfermedad arterial periférica de miembros inferiores</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="comorb10" name="Enfermedad aneurismática familiar" class="form__checklist">
+                    <label for="comorb10">Enfermedad aneurismática familiar</label><br>
+                </div>
+                
+            </div>
+        </section>
+        <section class="part3">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información</h1>
+                    <h2 class="home__title">Sobre Aneurismas</h2>
+                </div>
+                <div class="aneurisma__description">
+                    <a class="descripcion">
+                        ¿Familiar en primer grado de consanguinidad con aneurisma de aorta?
+                    </a>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="consangS" value="s" name="consanguinidadS" class="form__checklist">
+                    <label for="consangS">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="consangN" value="n" name="consanguinidadN" class="form__checklist">
+                    <label for="consangN">No</label>
+                </div>
+
+                <div class="aneurisma__description">
+                    <a class="descripcion">
+                        Ubicación anatómica del aneurisma
+                    </a>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="ao1" class="form__checklist">
+                    <label for="ao1">Aorta torácica ascendente</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="ao2" class="form__checklist">
+                    <label for="ao2">Aorta torácica descendente</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="ao3" class="form__checklist">
+                    <label for="ao3">Aorta torácica ascendente</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="ao4" class="form__checklist">
+                    <label for="ao4">Aorta torácica ascendente</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checkbox" id="ao5" class="form__checklist">
+                    <label for="ao5">Aorta torácica ascendente</label><br>
+                </div>
+
+                <div class="aneurisma__description">
+                    <a class="descripcion">
+                        Compromiso aneurismático de arterias iliacas
+                    </a>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="iliaco1" name="iliacosi" class="form__checklist">
+                    <label for="iliaco1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="iliaco2" name="iliacono" class="form__checklist">
+                    <label for="iliaco2">No</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part4">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Especificaciones y tamaño</h1>
+                    <h2 class="home__title">de Aneurismas</h2>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Tamaño en milímetros del aneurisma de aorta al momento del diagnóstico
+                    </a>                    
+                    <div class="form__box">
+                        <input type="number" name="cantidadmmaneurisma" class="form__input" placeholder="Cantidad en mm">
+                        <label for="" class="form__label">Cantidad en mm</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Tamaño en milímetros del aneurisma de aorta después de 1 año de seguimiento
+                    </a>                    
+                    <div class="form__box">
+                        <input type="number" name="tamanommaneurisma" class="form__input" placeholder="Cantidad en mm">
+                        <label for="" class="form__label">Cantidad en mm</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Tamaño en milímetros del aneurisma de aorta después de 2 años de seguimiento
+                    </a>                    
+                    <div class="form__box">
+                        <input type="number" name="cantidadmmaneuristaaños" class="form__input" placeholder="Cantidad en mm">
+                        <label for="" class="form__label">Cantidad en mm</label>
+                        <div class="form__shadow"></div>
+                    </div>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Imagen con la cual se realizo el diagnóstico del aneurisma de aorta
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="diag1" name="diagnosticodopler" class="form__checklist">
+                    <label for="diag1">Doppler</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="diag2" name="diagnosticoangio" class="form__checklist">
+                    <label for="diag2">Angiotomografia</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="diag3" name="diagnosticootro" class="form__checklist">
+                    <label for="diag3">Otro</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part5">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Manejo y </h1>
+                    <h2 class="home__title">Procedimientos</h2>
+                    <p class="home__description">
+                        Informacion detallada del paciente <br> Ésta información estará ligada a excel
+                    </p>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Cúal fue el manejo inicial que recibió el paciente?
+                    </a>                    
+                </div>
+                <div class="form__select3">
+                    <input type="radio" id="diag1" class="form__checklist4">
+                    <label for="diag1">Seguimiento (Paciente con aneurisma sin criterio quirúrgico)</label></br>
+                </div>
+                <div class="form__select3">
+                    <input type="radio" id="diag2" class="form__checklist4">
+                    <label for="diag2">Manejo NO operatorio (Paciente con aneurisma con indicación quirúrgica pero con contraindicaciones)</label><br>
+                </div>
+                <div class="form__select3">
+                    <input type="radio" id="diag3" class="form__checklist4">
+                    <label for="diag3">Abierto</label><br>
+                </div>
+                <div class="form__select3">
+                    <input type="radio" id="diag4" class="form__checklist4">
+                    <label for="diag4">Endovascular</label><br>
+                </div>
+                <div class="form__select3">
+                    <input type="radio" id="diag5" class="form__checklist4">
+                    <label for="diag5">Híbrido</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part6">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información</h1>
+                    <h2 class="home__title">sobre Procedimientos</h2>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿El procedimiento se realizo de urgencia o programado?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="prod1" class="form__checklist">
+                    <label for="prod1">Urgencia</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="prod2" class="form__checklist">
+                    <label for="prod2">Programado</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="prod3" class="form__checklist">
+                    <label for="prod3">No se ha realizado</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Cúal fue el tiempo del procedimiento quirúrjico o endovascular?
+                    </a> 
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en minutos">
+                        <label for="" class="form__label">Cantidad en minutos</label>
+                        <div class="form__shadow"></div>
+                    </div>                   
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Cantidad de sangrado durante el procedimiento?
+                    </a> 
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en mililitros (ml)">
+                        <label for="" class="form__label">Cantidad en mililitros (ml)</label>
+                        <div class="form__shadow"></div>
+                    </div>                   
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Cantidad de medio de contraste utilizado durante el procedimiento endovascular? (Valor expresado en 'cc' centímetros cúbicos)
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="endo1" name="Ninguna" class="form__checklist">
+                    <label for="endo1">Menos de 100 cc</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="endo2" name="Ninguna" class="form__checklist">
+                    <label for="endo2">101 a 150 cc</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="endo3" name="Ninguna" class="form__checklist">
+                    <label for="endo3">151 a 200 cc</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="endo4" name="Ninguna" class="form__checklist">
+                    <label for="endo4">201 a 250 cc</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="endo5" name="Ninguna" class="form__checklist">
+                    <label for="endo5">Más de 251 cc</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part7">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información adicional</h1>
+                    <h2 class="home__title">del paciente parte 1</h2>
+                    <p class="home__description">
+                        Luego del procedimiento
+                    </p>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿El paciente requirió explantación de la prótesis?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="exp1" name="Ninguna" class="form__checklist">
+                    <label for="exp1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="exp2" name="Ninguna" class="form__checklist">
+                    <label for="exp2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Infección de la endoprótesis?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="inf1" name="Ninguna" class="form__checklist">
+                    <label for="inf1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="inf2" name="Ninguna" class="form__checklist">
+                    <label for="inf2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Isquemia mesentérica?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="mesen1" name="Ninguna" class="form__checklist">
+                    <label for="mesen1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="mesen2" name="Ninguna" class="form__checklist">
+                    <label for="mesen2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Ileo posoperatorio?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="pos1" name="Ninguna" class="form__checklist">
+                    <label for="pos1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="pos2" name="Ninguna" class="form__checklist">
+                    <label for="pos2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Sangrado posoperatorio?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="sang1" name="Ninguna" class="form__checklist">
+                    <label for="sang1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="sang2" name="Ninguna" class="form__checklist">
+                    <label for="sang2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Obstrucción intestinal?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="intes1" name="Ninguna" class="form__checklist">
+                    <label for="intes1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="intes2" name="Ninguna" class="form__checklist">
+                    <label for="intes2">No</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part8">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información adicional</h1>
+                    <h2 class="home__title">del paciente parte 2</h2>
+                    <p class="home__description">
+                        Posterior al procedimiento
+                    </p>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Isquemia aguda de la extremidad?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="extre1" name="Ninguna" class="form__checklist">
+                    <label for="extre1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="extre2" name="Ninguna" class="form__checklist">
+                    <label for="extre2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Desplazamiento de la endoprótesis?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="despla1" name="Ninguna" class="form__checklist">
+                    <label for="despla1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="despla2" name="Ninguna" class="form__checklist">
+                    <label for="despla2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Lesión renal aguda?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="rena1" name="Ninguna" class="form__checklist">
+                    <label for="rena1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="rena2" name="Ninguna" class="form__checklist">
+                    <label for="rena2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Obstrucción de rama arterial visceral?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="arte1" name="Ninguna" class="form__checklist">
+                    <label for="arte1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="arte2" name="Ninguna" class="form__checklist">
+                    <label for="arte2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Síndrome compartimental?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="sindro1" name="Ninguna" class="form__checklist">
+                    <label for="sindro1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="sindro2" name="Ninguna" class="form__checklist">
+                    <label for="sindro2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Síndrome pos implantación?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="impla1" name="Ninguna" class="form__checklist">
+                    <label for="impla1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="impla2" name="Ninguna" class="form__checklist">
+                    <label for="impla2">No</label><br>
+                </div>
+            </div>
+        </section>
+        <section class="part9">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información adicional</h1>
+                    <h2 class="home__title">del paciente parte 3</h2>
+                    <p class="home__description">
+                        Posterior al procedimiento
+                    </p>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Trombosis de la prótesis o injerto?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="prot1" name="Ninguna" class="form__checklist">
+                    <label for="prot1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="prot2" name="Ninguna" class="form__checklist">
+                    <label for="prot2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Defectos en la prótesis o injerto?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="defec1" name="Ninguna" class="form__checklist">
+                    <label for="defec1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="defec2" name="Ninguna" class="form__checklist">
+                    <label for="defec2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Tipo(s) de defecto en la endoprótesis
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="checklist" id="endopro1" name="Ninguna" class="form__checklist">
+                    <label for="endopro1">Fractura</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checklist" id="endopro2" name="Ninguna" class="form__checklist">
+                    <label for="endopro2">Migración</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="checklist" id="endopro3" name="Ninguna" class="form__checklist">
+                    <label for="endopro3">Trombosis</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Mortalidad?
+                    </a>                    
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="morta1" name="Ninguna" class="form__checklist">
+                    <label for="morta1">Sí</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="morta2" name="Ninguna" class="form__checklist">
+                    <label for="morta2">No</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Estancia en la unidad de cuidados intensivos?
+                    </a>
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en días">
+                        <label for="" class="form__label">Cantidad en días</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Estancia que el paciente estuvo hospitalizado?
+                    </a>
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en días">
+                        <label for="" class="form__label">Cantidad en días</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        <section class="part10">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__subtitle">Información adicional</h1>
+                    <h2 class="home__title">del paciente parte 4</h2>
+                    <p class="home__description">
+                        Posterior al procedimiento
+                    </p>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Tiempo quirúrjico?
+                    </a>
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en minutos">
+                        <label for="" class="form__label">Cantidad en minutos</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Tiempo estancia en UCI?
+                    </a>
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Cantidad en días">
+                        <label for="" class="form__label">Cantidad en días</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Estancia en piso?
+                    </a>
+                    <div class="form__box">
+                        <input type="number" name="cantidad" class="form__input" placeholder="Indique el piso de la estancia">
+                        <label for="" class="form__label">Indique el piso de la estancia</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Indique si tuvo complicaciones y cuales?
+                    </a>
+                    <div class="form__selectE">
+                        <input type="radio" id="compli1" name="Ninguna" class="form__checklist3">
+                        <label for="compli1">Sí</label><br>
+                    </div>
+                    <div class="form__selectE">
+                        <input type="radio" id="compli2" name="Ninguna" class="form__checklist3">
+                        <label for="compli2">No</label><br>
+                    </div>
+                    <div class="form__box">
+                        <input type="text" name="cantidad" class="form__input" placeholder="Detalle de complicaciones">
+                        <label for="" class="form__label">Detalle de complicaciones</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        Tipo o marca de endoprótesis
+                    </a>
+                    <div class="form__box">
+                        <input type="text" name="cantidad" class="form__input" placeholder="Marca">
+                        <label for="" class="form__label">Marca</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Existió uso de stents asociados y marca?
+                    </a>
+                    <div class="form__selectE">
+                        <input type="radio" id="stents1" name="Ninguna" class="form__checklist3">
+                        <label for="stents1">Sí</label><br>
+                    </div>
+                    <div class="form__selectE">
+                        <input type="radio" id="stents2" name="Ninguna" class="form__checklist3">
+                        <label for="stents2">No</label><br>
+                    </div>
+                    <div class="form__box">
+                        <input type="text" name="cantidad" class="form__input" placeholder="Indique la marca">
+                        <label for="" class="form__label">Indique la marca</label>
+                        <div class="form__shadow"></div>
+                    </div>                    
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Tipo de abordaje?
+                    </a>                  
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="abord1" name="Ninguna" class="form__checklist">
+                    <label for="abord1">Percutáneo</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="abord2" name="Ninguna" class="form__checklist">
+                    <label for="abord2">Abierto</label><br>
+                </div>
+                <div class="tamano__description">
+                    <a class="descripcion">
+                        ¿Tipo de cierre?
+                    </a>                  
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="cierre1" name="Ninguna" class="form__checklist">
+                    <label for="cierre1">Percutáneo de accesos vascular</label><br>
+                </div>
+                <div class="form__select">
+                    <input type="radio" id="cierre2" name="Ninguna" class="form__checklist">
+                    <label for="cierre2">Abierto</label><br>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="parte__final">
+            <div class="form__button">
+                <input type="submit" name="submit" class="form__submit" value="Send">
+            </div>
+        </section>
+        
+    </body>
+</html>

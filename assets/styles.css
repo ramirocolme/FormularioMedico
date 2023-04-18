@@ -1,0 +1,273 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+  /*========== Colors ==========*/
+  --first-color: hsl(79, 100%, 49%);
+  --white-color: #fff;
+  --black-color: #000;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .563rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 968px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 1px;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--white-color);
+}
+label{
+    margin-right: 10%;
+}
+
+
+
+
+
+
+
+/*=============== MODERN INPUT ===============*/
+
+.home__subtitle{
+    padding-top: 2rem;
+}
+.home__data{
+    text-align: center;
+}
+.home__description{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.home__container{
+    margin-bottom: 2rem;
+}
+
+
+.form{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0 1.5rem;
+}
+
+.form__content{
+    display: grid;
+    row-gap: 1.5rem;/*Esto es para las cajas de login*/
+}
+
+.form__input,
+.form__label,
+.form__submit{
+    border: 0;
+    outline: none;
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+}
+
+.form__box{
+    width: 312px;
+    height: 59px;
+    position: relative;
+}
+
+.form__shadow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+}
+
+.form__input{
+    position: absolute;
+    border: 2.5px solid var(--black-color);
+    background-color: var(--white-color);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    padding: 18px;
+    transition: transform .3s;
+}
+
+.form__input::placeholder{
+    transition: opacity .5s;
+}
+
+.form__label{
+    z-index: 100;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: var(--tiny-font-size);
+    font-weight: 600;
+    transition: .2s;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.form__button{
+    display: grid;
+}
+
+.form__submit{
+    padding: .875rem 1.5rem;
+    color: var(--black-color);
+    background-color: var(--first-color);
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.form__submit:hover{
+    transform: translate(-6px, -6px);
+}
+
+
+/* Opaque placeholder */
+.form__input:focus::placeholder{
+    opacity: 0;
+    transition: .3s;/*desaparece y aparecen las letras de los inputs*/
+}
+
+/* Move input and sticky input up */
+.form__input:focus,
+.form__input:not(:placeholder-shown).form__input:not(:focus){
+    transform: translate(-8px, -8px);
+    padding: 28px 18px 18px;/*el input lleno lo deja resaltado*/
+    animation: input-animation .5s;
+}
+
+/* Move label and sticky label up */
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label{
+    opacity: 1;
+    top: 2px;
+    left: 12px;
+    transition: .3s;/*hace que aparezca mas pequeño la info que desea en el input*/
+}
+
+.form__select{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 40px;
+    flex-direction: row;
+}
+
+.form__checklist{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 2%;    
+}
+.aneurisma__description{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.tamano__description{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.form__select2{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 65px;
+    flex-direction: row;
+}
+.form__select3{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 70px;
+    flex-direction: row;
+    margin-left: 0;
+    margin-top: 0.5rem;
+}
+
+.form__checklist2{
+    width: 15px;
+    height: 15px;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+.form__selectE{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    height: 40px;
+    margin-left: 0%;
+}
+.form__checklist3{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+.form__checklist4{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+
+
+
+/* Input bounce animation */
+@keyframes input-animation{
+    0%{
+        transform: translate(0);
+    }
+    40%{
+        transform: translate(-9px, -9px);
+    }
+    60%{
+        transform: translate(-7px, -7px);
+    }/*Hace un pequeño rebote de efecto*/
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px){
+    .form__content,
+    .form__box{
+        width: 100%;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 968px){
+    .form__content{
+        zoom: 1.2;
+    }
+}
+
+
